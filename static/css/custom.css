@@ -1544,3 +1544,1064 @@ footer {
         background-size: 30px 30px;
     }
 }
+
+/* ========== 独立页：算法可视化教学站 v2 ========== */
+#content:has(.graph-lab--page) {
+    display: block !important;
+    max-width: none !important;
+}
+
+#content:has(.graph-lab--page) #sidebar {
+    display: none !important;
+}
+
+#main:has(.graph-lab--page) {
+    width: 100% !important;
+    max-width: none !important;
+}
+
+#wrap:has(.graph-lab--page) #header-title {
+    display: none !important;
+}
+
+.graph-lab--page {
+    width: min(1280px, calc(100vw - 48px));
+    margin: 0 auto 72px;
+    padding: 54px 0 0;
+}
+
+@keyframes graph-lab-enter {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 12px, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .graph-lab--page .graph-lab__hero,
+    .graph-lab--page .graph-lab__workspace,
+    .graph-lab--page .graph-lab__code-panel {
+        animation: graph-lab-enter 180ms ease-out both;
+    }
+
+    .graph-lab--page .graph-lab__workspace {
+        animation-delay: 60ms;
+    }
+
+    .graph-lab--page .graph-lab__code-panel {
+        animation-delay: 120ms;
+    }
+}
+
+.graph-lab--page .graph-lab__hero {
+    max-width: 760px;
+    margin-bottom: 22px;
+}
+
+.graph-lab--page .graph-lab__eyebrow {
+    margin: 0 0 8px;
+    color: var(--neon-cyan);
+    font-family: 'JetBrains Mono', Consolas, monospace;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0;
+}
+
+.graph-lab--page .graph-lab__title {
+    margin: 0;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 900;
+    line-height: 1.22;
+    text-wrap: balance;
+}
+
+.graph-lab--page .graph-lab__intro {
+    max-width: 700px;
+    margin: 12px 0 0;
+    color: #c9c9d8;
+    font-size: 0.96rem;
+    line-height: 1.8;
+    text-wrap: pretty;
+}
+
+.graph-lab--page .graph-lab__workspace {
+    display: grid;
+    grid-template-columns: 300px minmax(0, 1fr) 260px;
+    gap: 18px;
+    align-items: stretch;
+}
+
+.graph-lab--page .graph-lab__panel,
+.graph-lab--page .graph-lab__stage,
+.graph-lab--page .graph-lab__trace {
+    border-radius: 8px;
+    border: 1px solid rgba(255, 0, 60, 0.18);
+    background: rgba(11, 11, 20, 0.78);
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.36);
+    backdrop-filter: blur(14px) saturate(1.25);
+    -webkit-backdrop-filter: blur(14px) saturate(1.25);
+}
+
+.graph-lab--page .graph-lab__panel,
+.graph-lab--page .graph-lab__trace {
+    padding: 18px;
+}
+
+.graph-lab--page .graph-lab__section {
+    display: grid;
+    gap: 8px;
+}
+
+.graph-lab--page .graph-lab__label,
+.graph-lab--page .graph-lab__field span,
+.graph-lab--page .graph-lab__segmented legend {
+    color: #aeb0c4;
+    font-size: 0.78rem;
+    font-weight: 800;
+}
+
+.graph-lab--page .graph-lab__select-wrap {
+    position: relative;
+}
+
+.graph-lab--page .graph-lab__select-wrap::after {
+    content: "";
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid var(--neon-cyan);
+    border-bottom: 2px solid var(--neon-cyan);
+    transform: translateY(-65%) rotate(45deg);
+    pointer-events: none;
+}
+
+.graph-lab--page select,
+.graph-lab--page input[type="number"] {
+    width: 100%;
+    min-height: 42px;
+    border: 1px solid rgba(0, 229, 255, 0.2);
+    border-radius: 8px;
+    color: #f4f6ff;
+    background: rgba(3, 8, 16, 0.72);
+    font: inherit;
+    font-size: 0.9rem;
+}
+
+.graph-lab--page select {
+    appearance: none;
+    padding: 0 40px 0 12px;
+}
+
+.graph-lab--page input[type="number"] {
+    padding: 0 12px;
+}
+
+.graph-lab--page .graph-lab__lesson {
+    margin-top: 14px;
+    padding: 14px;
+    border-radius: 8px;
+    background: rgba(0, 229, 255, 0.08);
+    border: 1px solid rgba(0, 229, 255, 0.14);
+}
+
+.graph-lab--page .graph-lab__lesson h2 {
+    margin: 0 0 6px;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.graph-lab--page .graph-lab__lesson p {
+    margin: 0;
+    color: #b8bbcc;
+    font-size: 0.84rem;
+    line-height: 1.65;
+    text-wrap: pretty;
+}
+
+.graph-lab--page .graph-lab__segmented {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin: 16px 0 0;
+    padding: 0;
+    border: 0;
+}
+
+.graph-lab--page .graph-lab__segmented legend {
+    grid-column: 1 / -1;
+}
+
+.graph-lab--page .graph-lab__segmented input {
+    position: absolute;
+    opacity: 0;
+}
+
+.graph-lab--page .graph-lab__segmented span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 38px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #c8cad8;
+    background: rgba(255, 255, 255, 0.05);
+    font-size: 0.86rem;
+    font-weight: 800;
+}
+
+.graph-lab--page .graph-lab__segmented input:checked + span {
+    color: #fff;
+    background: rgba(255, 0, 60, 0.9);
+    border-color: rgba(255, 0, 60, 0.9);
+}
+
+.graph-lab--page .graph-lab__fields {
+    display: grid;
+    grid-template-columns: 1fr 96px;
+    gap: 10px;
+    margin-top: 14px;
+}
+
+.graph-lab--page .graph-lab__field {
+    display: grid;
+    gap: 7px;
+}
+
+.graph-lab--page .graph-lab__switch {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 14px;
+    color: #c8cad8;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.graph-lab--page .graph-lab__switch input {
+    position: absolute;
+    opacity: 0;
+}
+
+.graph-lab--page .graph-lab__switch span {
+    position: relative;
+    width: 42px;
+    height: 24px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.13);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.graph-lab--page .graph-lab__switch span::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #d8dbe8;
+    transition: transform 0.18s ease-out, background 0.18s ease-out;
+}
+
+.graph-lab--page .graph-lab__switch input:checked + span {
+    background: rgba(0, 229, 255, 0.26);
+    border-color: rgba(0, 229, 255, 0.46);
+}
+
+.graph-lab--page .graph-lab__switch input:checked + span::after {
+    transform: translateX(18px);
+    background: var(--neon-cyan);
+}
+
+.graph-lab--page .graph-lab__buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+    margin-top: 16px;
+}
+
+.graph-lab--page .graph-lab__button {
+    min-height: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    color: #f2f4ff;
+    background: rgba(255, 255, 255, 0.07);
+    cursor: pointer;
+    font-weight: 900;
+    transition: transform 0.16s ease-out, border-color 0.16s ease-out, background 0.16s ease-out;
+}
+
+.graph-lab--page .graph-lab__button:hover {
+    transform: translateY(-1px);
+    border-color: rgba(0, 229, 255, 0.45);
+    background: rgba(0, 229, 255, 0.12);
+}
+
+.graph-lab--page .graph-lab__button--primary {
+    color: #fff;
+    background: var(--neon-red);
+    border-color: var(--neon-red);
+}
+
+.graph-lab--page .graph-lab__button--danger {
+    color: #ff9aac;
+}
+
+.graph-lab--page .graph-lab__status {
+    min-height: 48px;
+    margin-top: 16px;
+    padding: 12px;
+    border-radius: 8px;
+    color: #d8dbe8;
+    background: rgba(255, 0, 60, 0.08);
+    border: 1px solid rgba(255, 0, 60, 0.14);
+    font-size: 0.88rem;
+    line-height: 1.55;
+}
+
+.graph-lab--page .graph-lab__stage {
+    position: relative;
+    min-height: 620px;
+    overflow: hidden;
+}
+
+.graph-lab--page .graph-lab__stats {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 2;
+    display: flex;
+    gap: 8px;
+}
+
+.graph-lab--page .graph-lab__stats span {
+    padding: 7px 10px;
+    border-radius: 8px;
+    color: #bfc2d2;
+    background: rgba(5, 8, 16, 0.78);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.78rem;
+}
+
+.graph-lab--page .graph-lab__stats strong {
+    color: var(--neon-cyan);
+    font-family: 'JetBrains Mono', Consolas, monospace;
+    font-size: 1rem;
+}
+
+.graph-lab--page .graph-lab__canvas {
+    display: block;
+    width: 100%;
+    height: 620px;
+    min-height: 620px;
+    cursor: crosshair;
+    background:
+        radial-gradient(circle at 28% 25%, rgba(0, 229, 255, 0.09), transparent 28%),
+        radial-gradient(circle at 76% 72%, rgba(255, 0, 60, 0.08), transparent 30%),
+        rgba(4, 6, 13, 0.9);
+}
+
+.graph-lab--page .graph-edge line {
+    stroke: rgba(158, 170, 196, 0.58);
+    stroke-width: 4;
+    stroke-linecap: round;
+}
+
+.graph-lab--page .graph-edge text {
+    paint-order: stroke;
+    stroke: rgba(4, 6, 13, 0.92);
+    stroke-width: 7;
+    fill: #dfe4f5;
+    font-family: 'JetBrains Mono', Consolas, monospace;
+    font-size: 15px;
+    font-weight: 900;
+    text-anchor: middle;
+}
+
+.graph-lab--page .graph-edge path {
+    fill: var(--neon-cyan);
+    stroke: rgba(4, 6, 13, 0.75);
+    stroke-width: 0.8;
+}
+
+.graph-lab--page #graph-arrow path {
+    fill: var(--neon-cyan);
+    stroke: rgba(4, 6, 13, 0.8);
+    stroke-width: 0.8;
+}
+
+.graph-lab--page .graph-edge.is-active line,
+.graph-lab--page .graph-edge.is-selected line {
+    stroke: var(--neon-cyan);
+    stroke-width: 6;
+}
+
+.graph-lab--page .graph-edge.is-active path,
+.graph-lab--page .graph-edge.is-selected path {
+    fill: var(--neon-red);
+}
+
+.graph-lab--page .graph-node {
+    cursor: grab;
+}
+
+.graph-lab--page .graph-node circle {
+    fill: #101827;
+    stroke: #748199;
+    stroke-width: 3;
+}
+
+.graph-lab--page .graph-node text {
+    fill: #f5f7ff;
+    font-family: 'JetBrains Mono', Consolas, monospace;
+    font-size: 17px;
+    font-weight: 900;
+    text-anchor: middle;
+    pointer-events: none;
+}
+
+.graph-lab--page .graph-node.is-frontier circle {
+    fill: rgba(0, 229, 255, 0.22);
+    stroke: var(--neon-cyan);
+}
+
+.graph-lab--page .graph-node.is-visited circle {
+    fill: rgba(255, 0, 60, 0.22);
+    stroke: var(--neon-red);
+}
+
+.graph-lab--page .graph-node.is-current circle,
+.graph-lab--page .graph-node.is-selected circle,
+.graph-lab--page .graph-node.is-pending circle {
+    fill: var(--neon-red);
+    stroke: #fff;
+}
+
+.graph-lab--page .graph-lab__trace-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.graph-lab--page .graph-lab__trace h2 {
+    margin: 0;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.graph-lab--page .graph-lab__trace-head span {
+    color: var(--neon-cyan);
+    font-family: 'JetBrains Mono', Consolas, monospace;
+    font-size: 0.72rem;
+    font-weight: 900;
+}
+
+.graph-lab--page .graph-lab__trace ol {
+    display: grid;
+    gap: 9px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.graph-lab--page .graph-lab__trace li {
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    gap: 9px;
+    align-items: start;
+    padding: 10px;
+    border-radius: 8px;
+    color: #bfc2d2;
+    background: rgba(255, 255, 255, 0.055);
+    font-size: 0.84rem;
+    line-height: 1.55;
+    text-wrap: pretty;
+}
+
+.graph-lab--page .graph-lab__trace li span {
+    color: var(--neon-cyan);
+    font-family: 'JetBrains Mono', Consolas, monospace;
+    font-weight: 900;
+}
+
+.graph-lab--page .graph-lab__trace li.is-active {
+    color: #fff;
+    background: rgba(255, 0, 60, 0.14);
+}
+
+.graph-lab--page .graph-lab__code-panel {
+    margin-top: 18px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 229, 255, 0.16);
+    background: rgba(7, 9, 18, 0.84);
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
+    overflow: hidden;
+}
+
+.graph-lab--page .graph-lab__code-header {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 18px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.graph-lab--page .graph-lab__code-header h2 {
+    margin: 0;
+    color: #fff;
+    font-size: 1.16rem;
+}
+
+.graph-lab--page .graph-lab__code-header > span {
+    color: var(--neon-cyan);
+    font-family: 'JetBrains Mono', Consolas, monospace;
+    font-size: 0.82rem;
+    font-weight: 900;
+}
+
+.graph-lab--page .graph-lab__code {
+    max-height: 520px;
+    margin: 0;
+    padding: 14px 0;
+    overflow: auto;
+    border-radius: 0 !important;
+    background: #060912 !important;
+    box-shadow: none !important;
+}
+
+.graph-lab--page .graph-lab__code code {
+    display: block;
+    min-width: max-content;
+    color: #dce3f7 !important;
+    background: transparent !important;
+    border: 0 !important;
+    padding: 0 !important;
+    font-family: 'JetBrains Mono', Consolas, monospace !important;
+    font-size: 0.86rem !important;
+    line-height: 1.62;
+}
+
+.graph-lab--page .code-line {
+    display: block;
+    min-height: 1.62em;
+    padding: 0 18px 0 64px;
+    position: relative;
+    white-space: pre;
+}
+
+.graph-lab--page .code-line::before {
+    content: attr(data-line);
+    position: absolute;
+    left: 18px;
+    width: 30px;
+    color: #596174;
+    text-align: right;
+}
+
+.graph-lab--page .code-line.is-active {
+    color: #fff;
+    background: rgba(255, 0, 60, 0.2);
+    box-shadow: inset 3px 0 0 var(--neon-cyan);
+}
+
+.graph-lab--page .code-line.is-active::before {
+    color: var(--neon-cyan);
+}
+
+.graph-lab--page button:focus-visible,
+.graph-lab--page select:focus-visible,
+.graph-lab--page input:focus-visible,
+.graph-lab--page .graph-lab__canvas:focus-visible,
+.graph-lab--page .graph-lab__segmented input:focus-visible + span,
+.graph-lab--page .graph-lab__switch input:focus-visible + span {
+    outline: 2px solid var(--neon-cyan);
+    outline-offset: 2px;
+}
+
+@media (max-width: 1180px) {
+    .graph-lab--page .graph-lab__workspace {
+        grid-template-columns: 300px minmax(0, 1fr);
+    }
+
+    .graph-lab--page .graph-lab__trace {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 820px) {
+    .graph-lab--page {
+        width: min(100% - 28px, 720px);
+        padding-top: 34px;
+    }
+
+    .graph-lab--page .graph-lab__workspace {
+        grid-template-columns: 1fr;
+    }
+
+    .graph-lab--page .graph-lab__title {
+        font-size: 1.55rem;
+    }
+
+    .graph-lab--page .graph-lab__stage,
+    .graph-lab--page .graph-lab__canvas {
+        min-height: 440px;
+        height: 440px;
+    }
+
+    .graph-lab--page .graph-lab__stats {
+        position: static;
+        padding: 12px 12px 0;
+        flex-wrap: wrap;
+    }
+
+    .graph-lab--page .graph-lab__code-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+/* ========== 首页：算法可视化教学站 ========== */
+.graph-lab {
+    padding: 8vh 24px 0;
+    margin-bottom: 52px;
+}
+
+.graph-lab__shell {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 24px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.64);
+    border: 1px solid rgba(255, 255, 255, 0.42);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+}
+
+.graph-lab__header {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 18px;
+}
+
+.graph-lab__eyebrow {
+    margin: 0 0 4px;
+    color: var(--neon-cyan);
+    font-family: 'JetBrains Mono', Consolas, monospace;
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.graph-lab__title {
+    margin: 0;
+    color: var(--ink-deep);
+    font-size: 1.55rem;
+    font-weight: 900;
+    text-wrap: balance;
+}
+
+.graph-lab__stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 8px;
+    color: var(--ink-muted);
+    font-size: 0.82rem;
+}
+
+.graph-lab__stats span {
+    padding: 6px 10px;
+    border-radius: 8px;
+    background: rgba(255, 0, 60, 0.08);
+    border: 1px solid rgba(255, 0, 60, 0.12);
+}
+
+.graph-lab__stats strong {
+    color: var(--neon-red);
+    font-family: 'JetBrains Mono', Consolas, monospace;
+    font-size: 1rem;
+    tab-size: 4;
+}
+
+.graph-lab__workspace {
+    display: grid;
+    grid-template-columns: minmax(210px, 250px) minmax(0, 1fr) minmax(190px, 230px);
+    gap: 16px;
+    align-items: stretch;
+}
+
+.graph-lab__panel,
+.graph-lab__trace,
+.graph-lab__stage {
+    border-radius: 8px;
+    border: 1px solid rgba(255, 0, 60, 0.14);
+    background: rgba(255, 255, 255, 0.48);
+}
+
+.graph-lab__panel,
+.graph-lab__trace {
+    padding: 14px;
+}
+
+.graph-lab__field {
+    display: grid;
+    gap: 6px;
+    color: var(--ink-soft);
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+.graph-lab__field select,
+.graph-lab__field input {
+    width: 100%;
+    min-height: 36px;
+    border: 1px solid rgba(255, 0, 60, 0.2);
+    border-radius: 8px;
+    padding: 6px 10px;
+    color: var(--ink-deep);
+    background: rgba(255, 255, 255, 0.72);
+}
+
+.graph-lab__inline {
+    display: grid;
+    grid-template-columns: 1fr 82px;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.graph-lab__segmented {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    margin: 14px 0 0;
+    padding: 0;
+    border: 0;
+}
+
+.graph-lab__segmented legend {
+    grid-column: 1 / -1;
+    margin-bottom: 6px;
+    color: var(--ink-soft);
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+.graph-lab__segmented label,
+.graph-lab__toggle {
+    cursor: pointer;
+    user-select: none;
+}
+
+.graph-lab__segmented input {
+    position: absolute;
+    opacity: 0;
+}
+
+.graph-lab__segmented span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 34px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 0, 60, 0.18);
+    color: var(--ink-soft);
+    background: rgba(255, 255, 255, 0.5);
+    font-size: 0.82rem;
+}
+
+.graph-lab__segmented input:checked + span {
+    color: #fff;
+    background: var(--neon-red);
+    border-color: var(--neon-red);
+}
+
+.graph-lab__segmented input:focus-visible + span,
+.graph-lab button:focus-visible,
+.graph-lab select:focus-visible,
+.graph-lab input:focus-visible,
+.graph-lab__canvas:focus-visible {
+    outline: 2px solid var(--neon-cyan);
+    outline-offset: 2px;
+}
+
+.graph-lab__toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+    color: var(--ink-soft);
+    font-size: 0.86rem;
+}
+
+.graph-lab__toggle input {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--neon-red);
+}
+
+.graph-lab__buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 14px;
+}
+
+.graph-lab__buttons button {
+    min-height: 36px;
+    border: 1px solid var(--neon-red);
+    border-radius: 8px;
+    color: #fff;
+    background: var(--neon-red);
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.graph-lab__buttons--secondary button {
+    color: var(--neon-red);
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.graph-lab__buttons button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(255, 0, 60, 0.18);
+}
+
+.graph-lab__status {
+    min-height: 46px;
+    margin-top: 14px;
+    padding: 10px;
+    border-radius: 8px;
+    color: var(--ink-soft);
+    background: rgba(0, 229, 255, 0.08);
+    border: 1px solid rgba(0, 229, 255, 0.16);
+    font-size: 0.84rem;
+    text-wrap: pretty;
+}
+
+.graph-lab__stage {
+    min-height: 460px;
+    overflow: hidden;
+}
+
+.graph-lab__canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 460px;
+    cursor: crosshair;
+    background-color: rgba(5, 5, 9, 0.05);
+    background-image:
+        linear-gradient(rgba(255, 0, 60, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 229, 255, 0.08) 1px, transparent 1px);
+    background-size: 36px 36px;
+}
+
+.graph-edge line {
+    stroke: rgba(74, 85, 104, 0.65);
+    stroke-width: 3;
+    stroke-linecap: round;
+}
+
+.graph-edge text {
+    paint-order: stroke;
+    stroke: rgba(255, 255, 255, 0.88);
+    stroke-width: 6;
+    fill: var(--ink-soft);
+    font-family: 'JetBrains Mono', Consolas, monospace;
+    font-size: 16px;
+    font-weight: 800;
+    text-anchor: middle;
+}
+
+.graph-edge path {
+    fill: var(--neon-red);
+}
+
+.graph-edge.is-active line,
+.graph-edge.is-selected line {
+    stroke: var(--neon-red);
+    stroke-width: 5;
+}
+
+.graph-node {
+    cursor: grab;
+}
+
+.graph-node circle {
+    fill: rgba(255, 255, 255, 0.88);
+    stroke: rgba(255, 0, 60, 0.42);
+    stroke-width: 3;
+}
+
+.graph-node text {
+    fill: var(--ink-deep);
+    font-family: 'JetBrains Mono', Consolas, monospace;
+    font-size: 17px;
+    font-weight: 900;
+    text-anchor: middle;
+    pointer-events: none;
+}
+
+.graph-node.is-frontier circle {
+    fill: rgba(0, 229, 255, 0.18);
+    stroke: var(--neon-cyan);
+}
+
+.graph-node.is-visited circle {
+    fill: rgba(255, 0, 60, 0.16);
+    stroke: var(--neon-red);
+}
+
+.graph-node.is-current circle,
+.graph-node.is-selected circle,
+.graph-node.is-pending circle {
+    fill: var(--neon-red);
+    stroke: #fff;
+}
+
+.graph-node.is-current text,
+.graph-node.is-selected text,
+.graph-node.is-pending text {
+    fill: #fff;
+}
+
+.graph-lab__trace h3 {
+    margin: 0 0 10px;
+    color: var(--ink-deep);
+    font-size: 1rem;
+}
+
+.graph-lab__trace ol {
+    display: grid;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.graph-lab__trace li {
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    gap: 8px;
+    align-items: start;
+    padding: 8px;
+    border-radius: 8px;
+    color: var(--ink-muted);
+    background: rgba(255, 255, 255, 0.42);
+    font-size: 0.82rem;
+    line-height: 1.55;
+    text-wrap: pretty;
+}
+
+.graph-lab__trace li span {
+    color: var(--neon-cyan);
+    font-family: 'JetBrains Mono', Consolas, monospace;
+    font-weight: 800;
+}
+
+.graph-lab__trace li.is-active {
+    color: var(--ink-deep);
+    background: rgba(255, 0, 60, 0.1);
+}
+
+[data-theme="dark"] .graph-lab__shell,
+[data-theme="dark"] .graph-lab__panel,
+[data-theme="dark"] .graph-lab__trace,
+[data-theme="dark"] .graph-lab__stage {
+    background: rgba(12, 12, 24, 0.68);
+    border-color: rgba(255, 0, 60, 0.18);
+}
+
+[data-theme="dark"] .graph-lab__title,
+[data-theme="dark"] .graph-lab__trace h3 {
+    color: #f0e6ff;
+}
+
+[data-theme="dark"] .graph-lab__field select,
+[data-theme="dark"] .graph-lab__field input,
+[data-theme="dark"] .graph-lab__segmented span,
+[data-theme="dark"] .graph-lab__buttons--secondary button,
+[data-theme="dark"] .graph-lab__trace li {
+    color: #d0d0dc;
+    background: rgba(5, 5, 9, 0.42);
+}
+
+[data-theme="dark"] .graph-lab__canvas {
+    background-color: rgba(5, 5, 9, 0.26);
+}
+
+[data-theme="dark"] .graph-edge line {
+    stroke: rgba(176, 176, 200, 0.42);
+}
+
+[data-theme="dark"] .graph-edge text {
+    stroke: rgba(10, 10, 20, 0.95);
+    fill: #d0d0dc;
+}
+
+[data-theme="dark"] .graph-node circle {
+    fill: rgba(13, 13, 24, 0.92);
+}
+
+[data-theme="dark"] .graph-node text {
+    fill: #f0e6ff;
+}
+
+[data-theme="dark"] .graph-node.is-current text,
+[data-theme="dark"] .graph-node.is-selected text,
+[data-theme="dark"] .graph-node.is-pending text {
+    fill: #fff;
+}
+
+@media (max-width: 1080px) {
+    .graph-lab__workspace {
+        grid-template-columns: 1fr;
+    }
+
+    .graph-lab__stage,
+    .graph-lab__canvas {
+        min-height: 380px;
+    }
+}
+
+@media (max-width: 768px) {
+    .graph-lab {
+        padding: 6vh 14px 0;
+        margin-bottom: 34px;
+    }
+
+    .graph-lab__shell {
+        padding: 16px;
+    }
+
+    .graph-lab__header {
+        align-items: start;
+        flex-direction: column;
+    }
+
+    .graph-lab__stats {
+        justify-content: flex-start;
+    }
+
+    .graph-lab__title {
+        font-size: 1.28rem;
+    }
+
+    .graph-lab__inline,
+    .graph-lab__buttons {
+        grid-template-columns: 1fr;
+    }
+}

@@ -3,6 +3,8 @@ timeZone = 'Asia/Shanghai'
 locale = 'zh-cn'
 title = "ACM-Lycoris's Blog"
 theme = 'hugo-theme-reimu'
+enableRobotsTXT = true
+summaryLength = 140
 
 [params]
   uglyURLs = true

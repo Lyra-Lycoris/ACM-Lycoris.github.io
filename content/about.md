@@ -2,6 +2,8 @@
 title: "关于"
 date: "2026-05-06"
 layout: "about"
+description: "关于 ACM-Lycoris：算法竞赛学习者，记录 ACM/ICPC 题解、图论算法、技术实践与个人博客搭建过程。"
+keywords: ["ACM-Lycoris", "ACM", "ICPC", "算法竞赛", "个人博客"]
 ---
 
 Hello World! 

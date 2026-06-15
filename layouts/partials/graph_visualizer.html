@@ -1,0 +1,125 @@
+<section class="graph-lab graph-lab--page" aria-labelledby="graph-lab-title">
+  <div class="graph-lab__hero">
+    <p class="graph-lab__eyebrow">Graph Algorithm Lab</p>
+    <h1 id="graph-lab-title" class="graph-lab__title">算法可视化教学站</h1>
+    <p class="graph-lab__intro">
+      选择一个图论算法，拖拽节点、添加节点或连边，然后用单步播放观察搜索、松弛、染色、生成树和拓扑序的变化。
+    </p>
+  </div>
+
+  <div class="graph-lab__workspace" data-graph-widget>
+    <aside class="graph-lab__panel" aria-label="图算法控制台">
+      <div class="graph-lab__section">
+        <label class="graph-lab__label" for="graph-algorithm">算法课程</label>
+        <div class="graph-lab__select-wrap">
+          <select id="graph-algorithm" data-graph-control="algorithm">
+            <option value="bfs">BFS 广度优先搜索</option>
+            <option value="zeroOneBfs">0-1 BFS</option>
+            <option value="dfs">DFS 深度优先搜索</option>
+            <option value="dijkstra">Dijkstra 最短路</option>
+            <option value="spfa">SPFA 队列优化最短路</option>
+            <option value="bellmanFord">Bellman-Ford 最短路</option>
+            <option value="floydWarshall">Floyd-Warshall 多源最短路</option>
+            <option value="dinicMaxFlow">Dinic 最大流</option>
+            <option value="hopcroftKarp">Hopcroft-Karp 二分图匹配</option>
+            <option value="prim">Prim 最小生成树</option>
+            <option value="kruskal">Kruskal 最小生成树</option>
+            <option value="treeDiameter">树的直径</option>
+            <option value="lcaBinaryLifting">LCA 倍增</option>
+            <option value="tarjanScc">Tarjan 强连通分量</option>
+            <option value="bridgeFinding">割边 / 桥</option>
+            <option value="topologicalSort">拓扑排序</option>
+            <option value="connectedComponents">连通分量</option>
+            <option value="bipartiteCheck">二分图判定</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="graph-lab__lesson" data-graph-lesson>
+        <h2>BFS 广度优先搜索</h2>
+        <p>从起点一层一层扩展，用队列维护即将访问的节点，适合无权图最短路和层次遍历。</p>
+      </div>
+
+      <fieldset class="graph-lab__segmented" aria-label="编辑模式">
+        <legend>编辑模式</legend>
+        <label>
+          <input type="radio" name="graph-mode" value="move" checked data-graph-control="mode">
+          <span>拖拽</span>
+        </label>
+        <label>
+          <input type="radio" name="graph-mode" value="node" data-graph-control="mode">
+          <span>加点</span>
+        </label>
+        <label>
+          <input type="radio" name="graph-mode" value="edge" data-graph-control="mode">
+          <span>连边</span>
+        </label>
+      </fieldset>
+
+      <div class="graph-lab__fields">
+        <label class="graph-lab__field" for="graph-start-node">
+          <span>起点</span>
+          <select id="graph-start-node" data-graph-control="start"></select>
+        </label>
+        <label class="graph-lab__field" for="graph-edge-weight">
+          <span>边权</span>
+          <input id="graph-edge-weight" type="number" min="-99" max="99" value="1" data-graph-control="weight">
+        </label>
+      </div>
+
+      <label class="graph-lab__switch">
+        <input type="checkbox" data-graph-control="directed">
+        <span></span>
+        有向图
+      </label>
+
+      <div class="graph-lab__buttons" aria-label="播放控制">
+        <button type="button" class="graph-lab__button graph-lab__button--primary" data-graph-action="run">运行</button>
+        <button type="button" class="graph-lab__button" data-graph-action="step">单步</button>
+        <button type="button" class="graph-lab__button" data-graph-action="pause">暂停</button>
+        <button type="button" class="graph-lab__button" data-graph-action="reset">清空</button>
+        <button type="button" class="graph-lab__button" data-graph-action="sample">示例图</button>
+        <button type="button" class="graph-lab__button graph-lab__button--danger" data-graph-action="delete">删除选中</button>
+      </div>
+
+      <div class="graph-lab__status" role="status" aria-live="polite" data-graph-status>
+        选择算法后开始运行
+      </div>
+    </aside>
+
+    <div class="graph-lab__stage" aria-label="图画布区域">
+      <div class="graph-lab__stats" aria-label="图状态">
+        <span><strong data-graph-stat="nodes">0</strong> 节点</span>
+        <span><strong data-graph-stat="edges">0</strong> 边</span>
+        <span><strong data-graph-stat="step">0</strong> 步</span>
+      </div>
+      <svg
+        class="graph-lab__canvas"
+        data-graph-canvas
+        viewBox="0 0 920 520"
+        role="img"
+        aria-label="可交互图算法画布"
+        tabindex="0"
+      ></svg>
+    </div>
+
+    <aside class="graph-lab__trace" aria-label="算法过程">
+      <div class="graph-lab__trace-head">
+        <h2>过程追踪</h2>
+        <span>Step Log</span>
+      </div>
+      <ol data-graph-trace></ol>
+    </aside>
+  </div>
+
+  <section class="graph-lab__code-panel" aria-labelledby="graph-code-title">
+    <div class="graph-lab__code-header">
+      <div>
+        <p class="graph-lab__eyebrow">ICPC Template</p>
+        <h2 id="graph-code-title">竞赛常用板子</h2>
+      </div>
+      <span data-graph-code-title>BFS 广度优先搜索</span>
+    </div>
+    <pre class="graph-lab__code"><code data-graph-code></code></pre>
+  </section>
+</section>

@@ -1,6 +1,23 @@
 # ========== 主页大图 ==========
 banner: "/images/back.png"
 
+menu:
+  - name: home
+    url: ""
+    icon:
+  - name: archives
+    url: "archives"
+    icon:
+  - name: graph_lab
+    url: "algorithm-visualizer"
+    icon:
+  - name: about
+    url: "about"
+    icon:
+  - name: friend
+    url: "friend"
+    icon:
+
 # ========== 自定义 CSS 注入 (主题不读 customCSS，必须用 injector 钩子) ==========
 injector:
   head_end: |
@@ -26,12 +43,27 @@ injector:
   body_end: |
     <script src="/js/category-accordion.js" defer></script>
     <script src="/js/waline-initial-avatar.js" defer></script>
+    <script src="/js/graph-visualizer.js?v=graphlab1" defer></script>
     <script src="/js/scifi-effects.js?v=fx1" defer></script>
 
 # ========== 站点信息 ==========
 author: ACM-Lycoris
 email: abcd1844314159@163.com
-description: "振桴彼岸，绽蕊忘川"
+description: "ACM-Lycoris 的算法竞赛与技术博客，记录图论、数据结构、题解、建站实践，并提供交互式算法可视化教学站。"
+keywords:
+  - ACM
+  - ICPC
+  - 算法竞赛
+  - 图论
+  - 数据结构
+  - 题解
+  - Hugo
+  - 个人博客
+
+open_graph:
+  enable: true
+  options:
+    twitter_card: summary_large_image
 
 # ========== 博客简介 (首页显示) ==========
 blogIntroTitle: "关于本站"
