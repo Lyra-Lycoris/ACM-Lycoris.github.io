@@ -120,6 +120,8 @@ The purpose is not keyword stuffing. The goal is to help search engines and read
 
 I am **ACM-Lycoris**, a competitive programming learner documenting my training, mistakes, tools, and thoughts along the way.
 
+Have feedback? Join the discussion: <你的 discussion 链接>!
+
 This blog is where I turn notes into articles, templates into explanations, and algorithms into interactive pages.
 
 Visit the site: <https://acm-lycoris.cn/>
