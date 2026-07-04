@@ -1,5 +1,6 @@
 {{- /* category_tree.html — flat category cards with image/text separated */ -}}
 {{- $allPages := where .Site.RegularPages "Section" "in" .Site.Params.mainSections -}}
+{{- $categoryCovers := .Site.Data.category_covers | default dict -}}
 {{- $covers := .Site.Data.covers | default slice -}}
 {{- $coverLen := len $covers -}}
 
@@ -26,11 +27,13 @@
 {{- range $catName, $posts := $catMap -}}
   {{- $total := len $posts -}}
 
-  {{- /* Find cover from first post that has one, else from covers data */ -}}
-  {{- $cover := "" -}}
-  {{- range $posts -}}
-    {{- $c := .Params.cover | default .Params.banner | default "" -}}
-    {{- if $c -}}{{- $cover = $c -}}{{- break -}}{{- end -}}
+  {{- /* Prefer category-specific covers; fall back to post/data covers for unmapped categories. */ -}}
+  {{- $cover := index $categoryCovers $catName | default "" -}}
+  {{- if not $cover -}}
+    {{- range $posts -}}
+      {{- $c := .Params.cover | default .Params.banner | default "" -}}
+      {{- if $c -}}{{- $cover = $c -}}{{- break -}}{{- end -}}
+    {{- end -}}
   {{- end -}}
   {{- if not $cover -}}
     {{- if gt $coverLen 0 -}}
@@ -67,12 +70,13 @@
           {{- $coverResource = resources.Get $coverPath -}}
         {{- end -}}
         {{- with $coverResource -}}
-          {{- $small := .Fill "320x220 Smart webp q72" -}}
-          {{- $large := .Fill "640x440 Smart webp q72" -}}
+          {{- $small := .Fill "480x330 Smart webp q78" -}}
+          {{- $medium := .Fill "960x660 Smart webp q80" -}}
+          {{- $large := .Fill "1440x990 Smart webp q82" -}}
           <img
             src="{{ $small.RelPermalink }}"
-            srcset="{{ $small.RelPermalink }} 320w, {{ $large.RelPermalink }} 640w"
-            sizes="(max-width: 768px) 110px, 180px"
+            srcset="{{ $small.RelPermalink }} 480w, {{ $medium.RelPermalink }} 960w, {{ $large.RelPermalink }} 1440w"
+            sizes="(max-width: 768px) 420px, 720px"
             width="{{ $small.Width }}"
             height="{{ $small.Height }}"
             alt="{{ $entry.name }}"

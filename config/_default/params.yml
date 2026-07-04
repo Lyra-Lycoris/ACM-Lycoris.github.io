@@ -129,7 +129,11 @@ social:
 # ========== 看板娘 ==========
 live2d:
   enable: false
-  position: left
+  position: right
+
+live2d_widgets:
+  enable: false
+  position: right
 
 # ========== Waline 评论和点赞 ==========
 waline:

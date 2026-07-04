@@ -51,8 +51,9 @@ js:
   pjax:
     src: local|theme-shokax-pjax@0.0.3/dist/index.umd.js
   live2d:
-    base: fastly_jsdelivr_gh|D-Sketon/plugin-live2d/
-    js: fastly_jsdelivr_gh|D-Sketon/plugin-live2d/js/live2d-autoload.js
+    base: local|D-Sketon/plugin-live2d/
+    src: local|D-Sketon/plugin-live2d/js/live2d-autoload.js
+    js: local|D-Sketon/plugin-live2d/js/live2d-autoload.js
   live2d_widgets:
     src: webcache|live2d-widgets@0.9.0/autoload.js
     integrity: sha384-poTN7wN/SqNhQqo3jdFeX20ikddWeFGkUkDEzsKjgH/ez8aQLn81oI0Cw6q5xNyB
