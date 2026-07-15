@@ -11,3 +11,4 @@ resources/
 /package-lock.json
 /package.json
 /waline-vercel.tgz
+/.worktrees/
