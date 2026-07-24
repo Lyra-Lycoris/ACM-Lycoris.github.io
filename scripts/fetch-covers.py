@@ -7,9 +7,9 @@ from pathlib import Path
 N = 12                    # 下载张数
 W_MIN, H_MIN = 600, 300   # 最小尺寸，只要横版图
 
-BASE = Path(__file__).parent
-IMG_DIR = BASE / "static" / "images" / "covers"
-DATA_FILE = BASE / "data" / "covers.yml"
+ROOT = Path(__file__).resolve().parents[1]
+IMG_DIR = ROOT / "static" / "images" / "covers"
+DATA_FILE = ROOT / "data" / "covers.yml"
 
 IMG_DIR.mkdir(parents=True, exist_ok=True)
 DATA_FILE.parent.mkdir(parents=True, exist_ok=True)
