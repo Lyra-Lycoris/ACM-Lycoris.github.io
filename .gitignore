@@ -1,14 +1,28 @@
+# Hugo output and generated state
 public/
 .hugo_build.lock
 .hugo-server.*.log
 resources/
 !static/resources/
-!static/resources/iconfont/
-!static/resources/iconfont/*.woff2
+!static/resources/**
 
+# Local browser automation and diagnostics
+.playwright-*/
+csdn-*.json
+csdn-*.png
+diag3-*.png
+
+# Local logs and Python caches
+*.log
+__pycache__/
+*.py[cod]
+
+# Local development dependencies and archives
 .vercel
 /node_modules/
 /package-lock.json
 /package.json
 /waline-vercel.tgz
+
+# Linked worktrees
 /.worktrees/
