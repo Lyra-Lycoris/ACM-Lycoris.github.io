@@ -34,7 +34,7 @@ The highlight of this project is the **Interactive Algorithm Lab**, an embedded 
 - **Problem editorials**: detailed write-ups for Luogu, GPLT, ICPC-style training, and contest practice.
 - **Interactive learning tools**: visual algorithm playback with editable graphs and synchronized code highlighting.
 - **Blog engineering notes**: Hugo customization, Waline comments, SEO metadata, deployment, and site design.
-- **Technical experiments**: Python web automation, network setup, and small practical tools.
+- **Technical experiments**: Python web automation and small practical tools.
 
 ## Interactive Algorithm Lab
 
@@ -75,13 +75,13 @@ cd ACM-Lycoris.github.io
 Run the local Hugo server:
 
 ```powershell
-..\Hugo\hugo.exe server -D
+hugo server -D
 ```
 
 Build the static site:
 
 ```powershell
-..\Hugo\hugo.exe --minify=false
+hugo --minify=false
 ```
 
 Run algorithm visualizer tests:
@@ -94,13 +94,21 @@ node --test static/js/graph-visualizer.test.mjs
 
 ```text
 content/                  Blog posts and standalone pages
-layouts/                  Custom Hugo layouts
-layouts/partials/         Head metadata, visualizer partials, shared templates
-static/css/               Custom styles
-static/js/                Interactive scripts and tests
-config/_default/          Site parameters, menus, injected assets
-themes/                   Hugo themes
+layouts/                  Hugo template overrides
+assets/                   Hugo-pipeline styles and source images
+static/                   Files served at stable public URLs
+config/_default/          Theme and site parameters
+data/                     Cover, friend, and vendor data
+scripts/                  Local maintenance and verification tools
+services/waline/          Waline backend source, outside the Hugo build
+themes/                   Hugo theme submodules
+docs/                     Operational guides, designs, and plans
 ```
+
+GitHub Pages builds only the Hugo site. The live Waline comment backend is
+deployed separately, and the blog selects that service through the `serverURL`
+in `config/_default/params.yml`. The retained source under `services/waline/`
+does not participate in the static-site build.
 
 ## SEO and Sharing
 
