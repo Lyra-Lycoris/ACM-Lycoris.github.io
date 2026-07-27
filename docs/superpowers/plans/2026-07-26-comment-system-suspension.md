@@ -43,6 +43,7 @@ $hugoPath = (Resolve-Path (Join-Path $repoRoot '..\Hugo\hugo.exe')).Path
 & $hugoPath --quiet --source $repoRoot
 
 $homePath = Join-Path $repoRoot 'public\index.html'
+$feedPath = Join-Path $repoRoot 'public\index.xml'
 $noticePath = Join-Path $repoRoot 'public\notice\index.html'
 $archivePath = Join-Path $repoRoot 'public\archives\index.html'
 $articlePath = Join-Path $repoRoot 'public\posts\字符串后缀数组\index.html'
@@ -72,6 +73,11 @@ if (Test-Path -LiteralPath $noticePath) {
 $archive = Get-Content -Raw -Encoding UTF8 $archivePath
 if ($archive -match '评论系统暂停说明') {
   $problems += 'notice page leaked into the post archive'
+}
+
+$feed = Get-Content -Raw -Encoding UTF8 $feedPath
+if ($feed -match '评论系统暂停说明') {
+  $problems += 'notice page leaked into the site feed'
 }
 
 $params = Get-Content -Raw -Encoding UTF8 $paramsPath
