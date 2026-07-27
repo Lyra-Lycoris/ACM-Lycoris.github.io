@@ -9,6 +9,13 @@
 
   {{- if or $introTitle $introText -}}
   <section class="home-intro" data-aos="fade-up">
+    <aside class="home-notice" aria-labelledby="home-notice-title">
+      <div class="home-notice__content">
+        <span class="home-notice__label">站点公告</span>
+        <p id="home-notice-title">评论系统因预算调整暂时关闭，不影响文章阅读与更新。</p>
+      </div>
+      <a class="home-notice__link" href="{{ "notice/" | relURL }}">查看说明 <span aria-hidden="true">→</span></a>
+    </aside>
     <div class="home-intro-card">
       {{- if $avatar -}}
       <div class="home-intro-avatar">
