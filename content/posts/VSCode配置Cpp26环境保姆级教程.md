@@ -1,5 +1,5 @@
 ---
-title: "VS Code 配 C++26 环境：大一新生保姆级教程"
+title: "第一次用 VS Code 写 C++ 的教程"
 date: 2026-09-09T11:40:00+08:00
 draft: false
 categories: ["教程"]
