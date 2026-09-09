@@ -1,0 +1,4 @@
+# 供读者直接下载的 Windows 脚本必须保持 CRLF 换行，
+# 否则 cmd.exe / PowerShell 在部分场景下解析异常。
+static/downloads/**/*.cmd text eol=crlf
+static/downloads/**/*.ps1 text eol=crlf
