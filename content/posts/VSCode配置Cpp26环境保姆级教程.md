@@ -236,7 +236,9 @@ gdb --version
 
 ## 四、装 VS Code 插件
 
-打开 VS Code，在顶部菜单点 **「终端」→「新建终端」**，下面会出现一个终端框。把下面四行**一次性**粘进去，按回车：
+打开 VS Code，在下面的菜单点 **「终端」→「新建终端」**，下面会出现一个终端框。把下面四行**一次性**粘进去，按回车：
+或者也可以直接按下**Ctrl+`** ， 或者**Ctrl + J**应该也可以打开底部菜单，找到终端。
+(也就是键盘左上角这个键，不是单引号(为什么我能点错成单引号))
 
 ```powershell
 code --install-extension ms-vscode.cpptools
@@ -263,6 +265,7 @@ code --install-extension MS-CEINTL.vscode-language-pack-zh-hans
 - ❌ 各种第三方的「C++ 智能提示」插件
 
 装完按 **`Ctrl + Shift + P`**，输入 `Reload Window`，回车重载一下。
+不会重载的直接重启vs code就行了。
 
 ---
 
@@ -326,8 +329,9 @@ code --install-extension MS-CEINTL.vscode-language-pack-zh-hans
 按一下键才关掉，所以你有充足的时间看输出，不用担心一闪而过。
 
 不想每次都弹窗的话，把 `run-in-external-terminal` 改成 `false`，程序就在 VS Code 下方的终端里跑；**需要弹窗的时候按 F8 就行**，F8 是强制弹窗，不受设置影响。
+在终端看输出是我们需要慢慢学习的技能，这里看各位喜好就行了。
 
-> ⚠️ **弹出来的窗口不认中文。** 那个独立窗口用的是系统默认编码，你的程序里如果 `cout` 中文字符串，会显示成 `鎺掑簭鍚` 这种乱码。
+> ⚠️ **弹出来的窗口不认中文。** 那个独立窗口用的是系统默认编码，你的程序里如果 `cout` 中文字符串，会显示成 `锟斤拷` 这种乱码。（你知道这是很不吉利的三个字吗）
 >
 > 解决办法：**竞赛代码本来就不该输出中文**（输出格式题目都规定死了）。真要打印中文调试，改用 F6 + `run-in-external-terminal: false`，VS Code 自带的终端是认 UTF-8 的。
 
@@ -342,64 +346,31 @@ code --install-extension MS-CEINTL.vscode-language-pack-zh-hans
 ## 六、写个程序验证一下
 
 新建一个文件夹放代码，**路径里不要有中文、不要有空格**。比如 `D:\code` 就很好，`D:\我的 C++ 作业` 就会出各种莫名其妙的问题。
+不 要 放 C 盘 
+你 没 有 那 么 有 钱 ， 好 吗
 
 用 VS Code 打开这个文件夹（菜单 → 文件 → 打开文件夹），新建 `main.cpp`，输入：
 
 ```cpp
 #include <iostream>
-#include <vector>
-#include <algorithm>
-#include <numeric>
-#include <format>
-
+using namespace std;
 int main() {
-    int n;
-    if (!(std::cin >> n)) {
-        std::cout << "no input\n";
-        return 0;
-    }
+    
+    cout<<"Hello,vs code!"<<endl;
 
-    std::vector<int> a(n);
-    for (int& x : a) std::cin >> x;
-
-    std::ranges::sort(a);
-    long long sum = std::reduce(a.begin(), a.end(), 0LL);
-
-    std::cout << std::format("__cplusplus = {}\n", __cplusplus);
-    std::cout << std::format("sorted : {}\n", a);
-    std::cout << std::format("sum = {}, max = {}\n", sum, a.back());
     return 0;
 }
 ```
 
-按 **F6**。弹出来的黑窗口里输入：
+按 **F6**。弹出来的黑窗口里,正确输出长这样：
 
 ```text
-5
-3 1 4 1 5
-```
-
-回车。正确输出长这样：
-
-```text
-__cplusplus = 202400
-sorted : [1, 1, 3, 4, 5]
-sum = 14, max = 5
+Hello,vs code!
 
 请按任意键继续. . .
 ```
 
-**看到 `202400` 就说明 C++26 真的开起来了。**
-
-对照表，看看你的数字是多少：
-
-| 你看到的 | 什么情况 |
-| --- | --- |
-| **202400** | ✅ C++26，配置完全正确 |
-| 202302 | C++23。GCC 版本旧了，回第二节跑一次 `pacman -Syu` |
-| 201703 | C++17。第五节的 `cpp-flags` 那一行没写对 |
-
-顺便说一句，这段代码里的 `std::format("{}", a)` 能直接把整个数组打印成 `[1, 1, 3, 4, 5]`，是新标准才有的本事，老的 C++ 得自己写循环。
+**看到这就说明 C++真的开起来了。**
 
 到这里环境就全配好了，可以开始写代码了。
 
@@ -551,5 +522,6 @@ sum = 14, max = 5
 **<https://github.com/Lyra-Lycoris/vscode-dev-setup>**
 
 国内直链再放一次，收藏起来给同学发：
+(我没有打广告啊喂)
 
 **<https://acm-lycoris.cn/downloads/vscode-dev-setup.zip>**
